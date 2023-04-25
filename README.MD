@@ -26,8 +26,6 @@ Si quieren evitar que se ejecuten todos los test al ejecutar el comando `npm run
 
 Ejemplo:
 
-`'./test/specs/**/*.js'`
-
-solo ejecuta un test `'./test/specs/**/findDevice.js'`
+`'./test/specs/**/*.js'` -> `'./test/specs/**/findDevice.js'` solo ejecuta un test.
 
 **NOTA: no necestan colocar el nombre de la carpeta donde este su test, para eso esta el doble `**` solo coloquen el nombre de su test\*\*

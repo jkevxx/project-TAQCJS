@@ -5,7 +5,6 @@ describe('Zenoss Application', () => {
   it('Login page', async () => {
     await LoginPage.open();
     await LoginPage.login('admin@elm1403-test.com', 'D0gP0und!');
-    await browser.pause(1000 * 3);
   });
 
   it('Find a device', async () => {

@@ -1,5 +1,8 @@
-import Page from './page.js';
+import Page from './url_page.js';
 
+/**
+ * containing specific selectors and methods for a specific page
+ */
 class LoginPage extends Page {
   get inputUsername() {
     return $('//*[@id="username"]');
@@ -20,7 +23,9 @@ class LoginPage extends Page {
   }
 
   get btnAlert() {
-    return $('button[class="v-btn v-btn--text theme--dark elevation-0 v-size--default"]');
+    return $(
+      'button[class="v-btn v-btn--text theme--dark elevation-0 v-size--default"]'
+    );
   }
 
   async login(username, password) {
@@ -28,14 +33,18 @@ class LoginPage extends Page {
     await this.btnContinue.click();
     await this.inputPassword.setValue(password);
     await this.btnSubmit.click();
-
-    if(await this.btnAlert.isDisplayed()){
-      await this.btnAlert.click();
-    }
   }
 
   open() {
     return super.open('#/');
+  }
+
+  async alertMessage() {
+    // console.log('-> this is: ' + (await this.btnAlert.isDisplayed()));
+    await this.btnAlert.waitForExist({ timeout: 2000 });
+    if (await this.btnAlert.isDisplayed()) {
+      await this.btnAlert.click();
+    }
   }
 }
 

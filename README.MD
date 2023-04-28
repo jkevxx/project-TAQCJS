@@ -12,20 +12,12 @@
 
 ## Instructions:
 
-En la carpeta `pageobjects` se colocan las clases que vayan a utilizar en su `testing case`
+The `pageobjects` folder contains all classes for each `testing case` and the nomenclature for the file names is `snake_case.js`
 
-La nomenclatura de los archivos que contengan **Classes** es: `snake_case.js`
+In the folder `specs` are the `testing cases` and the nomenclature for the file names is `camelCase.js`
 
-En la carpeta `specs` van a ir los `testing cases` la nomenclatura para esos archivos es `camelCase.js`
+To execute the `testing cases` you can use `npm run wdio` or `npx wdio run ./wdio.conf.js`
 
-Ya existe el test para iniciar sesión, solo necesitan llamarlo como está en el siguiente archivo `spects/GDLTAQ-15/findDevice.js`.
+If you want to execute and specific `test case` go to file called `wdio.conf.js` and in the property `specs` change the following line of code:
 
-Pueden ignorar la línea de código `await browser.pause(1000 * 3);` solo es para pausar el test.
-
-Si quieren evitar que se ejecuten todos los test al ejecutar el comando `npm run wdio` deben ir al archivo llamado `wdio.conf.js` y en la línea 25 pueden colocar el nombre de su archivo
-
-Ejemplo:
-
-`'./test/specs/**/*.js'` -> `'./test/specs/**/findDevice.js'` solo ejecuta un test.
-
-**NOTA: no necestan colocar el nombre de la carpeta donde este su test, para eso esta el doble `**` solo coloquen el nombre de su test\*\*
+`'./test/specs/**/*.js'` -> `'./test/specs/**/findDevice.js'`

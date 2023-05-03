@@ -36,6 +36,5 @@ describe('Advanced search test suit', () => {
     it('Search values', async () => {
         await inventoryPage.startSearch();
         await expect(inventoryPage.searchErrorMessage).not.toBeExisting();
-        await browser.pause(5000);
     });
 });

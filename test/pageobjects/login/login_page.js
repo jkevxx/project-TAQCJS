@@ -14,12 +14,12 @@ class LoginPage extends Page {
 
   get btnContinue() {
     return $(
-      '/html/body/div/main/section/div/div/div/div/div/form/div[2]/button'
+      'body > div > main > section > div > div > div > div > div > form > div.c7f45701e > button'
     );
   }
 
   get btnSubmit() {
-    return $('/html/body/div/main/section/div/div/div/form/div[2]/button');
+    return $('body > div > main > section > div > div > div > form > div.c7f45701e > button');
   }
 
   get btnAlert() {

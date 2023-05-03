@@ -69,6 +69,13 @@ class DateElement {
         await this.quickSelectList[8].click();
     }
 
+    async textToday() {
+        const today = new Date();
+        const hoursAndMinutesFormat = 
+            `Past ${today.getHours()} hours ${today.getMinutes()} minutes`;
+        return hoursAndMinutesFormat;
+    }
+
     async textYesterday() {
         const date = new Date();
         const yesterdayFormat = 

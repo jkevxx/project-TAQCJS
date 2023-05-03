@@ -23,40 +23,13 @@ describe('Validate Time Range Controls from SmartView tab within Zenoss platform
         expect(await DateElement.quickSelectPanel).toBeDisplayed();
     });
 
-
-/*    
-describe('Validate Time Range Controls from Dashboard tab', async () => {
-    it('should login success page', async () => {
-        await LoginPage.open();
-        await LoginPage.login('admin@elm1403-test.com', 'D0gP0und!');
-    });
-    
-    it('should handle alert message', async () => {
-        await LoginPage.alertMessage();
-    });
-    
-    it('should go to Dashboard tab', async () => {
-        await DateElement.selectDashboardTab();
-        expect(await DateElement.dashboardHeader).toHaveTextContaining('Dashboards');
-        browser.pause(2000);
-    });
-    
-    it('should display the quick select panel', async () => {
-        await DateElement.selectBtnQuickSelect();
-        await DateElement.quickSelectPanel.waitForDisplayed();
-        expect(await DateElement.quickSelectPanel).toBeDisplayed();
-    });
- */
     it('should select Today option from the quick select list', async () => {
         await DateElement.quickSelectPanel.scrollIntoView();
-        // for(let i = 0; i < await DateElement.quickSelectList.length; i++) {
-        //     console.log(await DateElement.quickSelectList[i].getText(), i, 'element');
-        // }
         await DateElement.selectToday();
         const today = new Date();
         console.log('---->>>>> today in dropdown: ', await DateElement.btnQuickSelect.getText());
-        console.log('*** text today from JS****: ',today);
-        expect(await DateElement.btnQuickSelect).toHaveTextContaining(today);    
+        console.log('*** today in method textToday****: ', DateElement.textToday());
+        expect(await DateElement.btnQuickSelect).toHaveTextContaining(await DateElement.textToday());    
     });
 
     it('should select Yesterday option', async () => {
@@ -80,7 +53,7 @@ describe('Validate Time Range Controls from Dashboard tab', async () => {
         await DateElement.selectBtnQuickSelect();
         await DateElement.quickSelectPanel.scrollIntoView();
         await DateElement.select30d();
-        console.log('---->>>>> 3 d: ', await DateElement.btnQuickSelect.getText());
+        console.log('---->>>>> 30d: ', await DateElement.btnQuickSelect.getText());
         expect(await DateElement.btnQuickSelect).toHaveTextContaining('Past 4 weeks 2 days');    
     });
 
@@ -125,6 +98,7 @@ describe('Validate Time Range Controls from Dashboard tab', async () => {
     });
 
 });
+
 
 
 

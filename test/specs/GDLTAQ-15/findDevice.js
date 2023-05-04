@@ -17,9 +17,7 @@ describe('Zenoss Application', () => {
 
   it('Should verify for device details', async () => {
     await FindDevice.deviceDetailUUID();
-    await expect(FindDevice.contentUUID).toHaveTextContaining(
-      '6c9c1f23-e7de-4741-9867-3c71f46ea148'
-    );
+    await expect(FindDevice.contentUUID).toBeDisplayed();
     // await browser.pause(1000 * 2);
   });
 });

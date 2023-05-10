@@ -19,7 +19,9 @@ class LoginPage extends Page {
   }
 
   get btnSubmit() {
-    return $('body > div > main > section > div > div > div > form > div.c7f45701e > button');
+    return $(
+      'body > div > main > section > div > div > div > form > div.c7f45701e > button'
+    );
   }
 
   get btnAlert() {
@@ -41,9 +43,13 @@ class LoginPage extends Page {
 
   async alertMessage() {
     // console.log('-> this is: ' + (await this.btnAlert.isDisplayed()));
-    await this.btnAlert.waitForExist({ timeout: 2000 });
-    if (await this.btnAlert.isDisplayed()) {
-      await this.btnAlert.click();
+    try {
+      await this.btnAlert.waitForExist({ timeout: 2000 });
+      if (await this.btnAlert.isDisplayed()) {
+        await this.btnAlert.click();
+      }
+    } catch (error) {
+      console.log('There is not alert');
     }
   }
 }

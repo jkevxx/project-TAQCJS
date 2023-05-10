@@ -13,7 +13,7 @@ describe('Login test suit', () => {
     });
 
     it('Skip alert message', async () => {
-        LoginPage.alertMessage();
+        await LoginPage.alertMessage();
     });
 })
 

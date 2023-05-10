@@ -1,7 +1,7 @@
 import LoginPage from '../../pageobjects/login/login_page.js';
 import FindDevice from '../../pageobjects/GDLTAQ-15/find_device_page.js';
 
-describe('Zenoss Application', () => {
+describe('Login Zenoss Application', () => {
   it('Should get access to login page', async () => {
     await LoginPage.open();
     await LoginPage.login('admin@elm1403-test.com', 'D0gP0und!');
@@ -10,7 +10,9 @@ describe('Zenoss Application', () => {
   it('Should show alert message', async () => {
     await LoginPage.alertMessage();
   });
+});
 
+describe('Find device', () => {
   it('Should find a device', async () => {
     await FindDevice.searchDevice('qa-centos-6.zenoss.lab');
   });

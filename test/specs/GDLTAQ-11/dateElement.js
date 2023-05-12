@@ -9,6 +9,7 @@ describe('Validate Time Range Controls from SmartView tab within Zenoss platform
     });
     
     it('should handle alert message', async () => {
+        await browser.pause(1000 * 2);
         await LoginPage.alertMessage();
     });
 

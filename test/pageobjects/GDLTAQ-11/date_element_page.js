@@ -1,12 +1,5 @@
 class DateElement {
-    get dashboardTab () {
-        return $('a[id="Dashboard-nav"]');
-    }
-
-    get dashboardHeader() {
-        return $('div[class="ctx-labels text-subtitle-2"]');
-    }
-
+    
     get smartViewTab() {
         return $('a[id="SmartView-nav"]');
     }
@@ -25,10 +18,6 @@ class DateElement {
 
     get quickSelectList() {
         return $$('//div[@class="z-overflow-ellipsis v-list-item v-list-item--link theme--dark"]');
-    }
-
-    async selectDashboardTab() {
-        (await this.dashboardTab).click();
     }
 
     async selectSmartVTab() {
@@ -71,18 +60,22 @@ class DateElement {
 
     async textToday() {
         const today = new Date();
-        const hoursAndMinutesFormat = 
+        const todayFormat = 
             `Past ${today.getHours()} hours ${today.getMinutes()} minutes`;
-        return hoursAndMinutesFormat;
+        return todayFormat;
     }
 
     async textYesterday() {
         const date = new Date();
         const yesterdayFormat = 
-            `${date.getMonth() + 1}/${date.getDate() - 1}/${date.getFullYear()}`;
+            `
+             ${date.getMonth() + 1}/${date.getDate() - 1}/${date.getFullYear()} 00:00 - 
+             ${date.getMonth() + 1}/${date.getDate() - 1}/${date.getFullYear()} 23:59
+            `;
         return yesterdayFormat;
     }
     
 }
 
 export default new DateElement();
+

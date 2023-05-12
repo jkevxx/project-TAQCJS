@@ -8,6 +8,7 @@ describe('Login Zenoss Application', () => {
   });
 
   it('Should show alert message', async () => {
+    await browser.pause(1000 * 2);
     await LoginPage.alertMessage();
   });
 });
